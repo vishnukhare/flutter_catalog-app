@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'package:flutter_application_1/screen/login.dart';
+import 'screen/home.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        primarySwatch: Colors.amber,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+      ),
+      routes: {
+        '/': (context) => LoginPage(),
+        '/home': (context) => HomePage(),
+        '/login': (context) => LoginPage(),
+      },
     );
   }
 }
